@@ -67,6 +67,7 @@ const columns = [
     label: '姓名',
     prop: 'name',
     component: 'NInput',
+    span: 12,
     props: {
       placeholder: '请输入姓名'
     },
@@ -75,10 +76,11 @@ const columns = [
     label: '地址',
     prop: 'address',
     component: 'NInput',
+    span: 12,
   },
   {
-    label: '城市',
-    prop: 'cs',
+    label: '选择',
+    prop: 'select',
     component: 'n-select',
     props: {
       options: options,

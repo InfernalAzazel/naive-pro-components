@@ -60,24 +60,24 @@ defineExpose({
       <NStep v-for="(step, index) in props.columns" :key="index" :title="step.label" :description="step.description"/>
     </n-steps>
     <n-form ref="formInstRef" :model="modelValue" v-bind="attrs">
-      <template v-for="(column, index) in props.columns[currentStep - 1].children" :key="index">
-        <!-- 栅格 -->
-        <n-grid v-if="props.grid" :cols="props.cols" :x-gap="props.xGap" :y-gap="props.yGap">
-          <n-form-item-gi :span="column.span || props.cols" :label="column.label" :path="column.prop">
+      <n-grid  :cols="props.cols" :x-gap="props.xGap" :y-gap="props.yGap">
+        <template v-for="(column, index) in props.columns[currentStep - 1].children" :key="index">
+          <!-- 栅格 -->
+          <n-form-item-gi v-if="props.grid" :span="column.span || props.cols" :label="column.label" :path="column.prop">
             <component :is="renderComponent(column)"
                        v-bind="column.props"
                        v-model:value="modelValue[column.prop]"
                        @update:value="(value: any) => modelValue[column.prop] = value" />
           </n-form-item-gi>
-        </n-grid>
-        <!-- 普通项 -->
-        <n-form-item v-else :label="column.label" :path="column.prop" :key="column.prop">
-          <component :is="renderComponent(column)"
-                     v-bind="column.props"
-                     v-model:value="modelValue[column.prop]"
-                     @update:value="(value: any) => modelValue[column.prop] = value" />
-        </n-form-item>
-      </template>
+          <!-- 普通项 -->
+          <n-form-item v-else :label="column.label" :path="column.prop" :key="column.prop">
+            <component :is="renderComponent(column)"
+                       v-bind="column.props"
+                       v-model:value="modelValue[column.prop]"
+                       @update:value="(value: any) => modelValue[column.prop] = value" />
+          </n-form-item>
+        </template>
+      </n-grid>
       <!-- 工具栏 -->
       <n-space :justify="toolbar.justify">
         <slot name="toolbar">
