@@ -1,39 +1,53 @@
 # naive-pro-components
 
-This template should help get you started developing with Vue 3 in Vite.
+See our website [naive-pro-components](https://infernalazazel.github.io/naive-pro-components/) for more information.
 
-## Recommended IDE Setup
+English | [简体中文](./README-zh_CN.md)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Install
 
-## Type Support for `.vue` Imports in TS
+Using npm:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
+```bash
+npm install naive-pro-components
 ```
 
-### Compile and Hot-Reload for Development
+or using pnpm:
 
-```sh
-pnpm dev
+```bash
+pnpm add naive-pro-components
 ```
 
-### Type-Check, Compile and Minify for Production
+## Usage
 
-```sh
-pnpm build
+### Globals
+
+```ts
+
+import { createApp } from 'vue'
+import App from './App.vue'
+import naive from 'naive-ui'
+import naivePro from 'naive-pro-components'
+
+const app =createApp(App)
+app.use(naive)
+app.use(naivePro)
+app.mount('#app')
 ```
+## List of things to do
 
-### Lint with [ESLint](https://eslint.org/)
+- [ ] Add a ProLayout
+- [ ] Add a ProBreadcrumb
+- [ ] Add a ProRadio
+- [ ] Add a ProCheckbox
+- [X] Add a ProForm base
+- [X] Add a ProForm steps
+- [ ] Add a ProForm tabs
+- [ ] Add a ProForm query
+- [ ] Add a ProDataTable
+- [ ] Add a ProCrud
 
-```sh
-pnpm lint
-```
+## License
+MIT
+
+Copyright (c) 2024-present, kylin
