@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import SchemaForm from '../packages/SchemaForm/SchemaForm.vue'
+import ProForm from './ProForm'
 import type { Component } from 'vue'
 
 
@@ -7,7 +7,7 @@ import type { Component } from 'vue'
 const components: {
   [propName: string]: Component
 } = {
-  SchemaForm
+  ProForm
 }
 // 插件声明：声明所有插件
 // 插件注册：在 Vue 项目的入口文件中，通过 ( app.use(插件) ) 进行注册
@@ -25,7 +25,7 @@ const install: any = (app: any) => {
 
 // 按需引入
 export {
-  SchemaForm,
+  ProForm,
 }
 export default {
   // 导出的对象必须具有 install，才能被 Vue.use() 方法安装

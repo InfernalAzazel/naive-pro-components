@@ -1,8 +1,8 @@
-import SchemaForm from './SchemaForm/SchemaForm.vue'
+import ProForm from './ProForm'
 
 
 declare module 'vue' {
   export interface GlobalComponents {
-    SchemaForm: typeof SchemaForm
+    ProForm: typeof ProForm
   }
 }

@@ -25,7 +25,7 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
                 text: '表单',
                 items: [
                     {
-                        text: 'SchemaForm',
+                        text: 'ProForm',
                         link: '/cn/form/index.md'
                     },
                 ]
