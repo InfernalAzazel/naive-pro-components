@@ -108,7 +108,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <ProForm v-model="formData" :columns="columns" :rules="rules" />
+  <ProForm v-model="formData" :columns="columns" :rules="rules" @submit="(isValid)=>console.log('验证结果: ', isValid)" />
 </template>
 
 <style scoped>

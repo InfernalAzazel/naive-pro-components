@@ -38,6 +38,8 @@ export interface ProFormProps extends  /* @vue-ignore */ FormProps {
   cols?: number
   xGap?: number
   yGap?: number
+  submit?: (isValid: boolean) => void
+  reset?: () => void
 }
 
 export const ProFormNormalToolBarProps = defineProFormNormalToolBar(

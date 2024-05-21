@@ -251,15 +251,31 @@ const columns = [
 
 > 更多参数请参考 [n-form](https://www.naiveui.com/zh-CN/os-theme/components/form) 和 [n-grid](https://www.naiveui.com/zh-CN/os-theme/components/grid) 的属性。
 
+## 事件
+| 事件名    | 参数                           | 说明      |
+|--------|------------------------------|---------|
+| submit | `(isValid: boolean) => void` | 提交表单时触发 |
+| reset  | `() => void`                 | 重置表单时触发 |
+
+## 方法
+
+| 方法名         | 参数                                                                                     | 说明                                                           |
+|-------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| submit      | `(isValid: boolean) => void`                                                           | 验证表单，Promise rejection 的返回值的是类型 `Array<FormValidationError>` |
+| reset       | `(callback?: FormValidateCallback, shouldRuleBeApplied?: ShouldRuleBeApplied) => void` | 还原到未校验的状态                                                    |
+| resetFields | `() => void`                                                                           | 对整个表单进行重置，将所有字段值重置为初始值并移除校验结果                                |
+
 ## Columns
 
-| 参数        | 类型                | 默认值 | 说明                               |
-|-----------|-------------------|-----|----------------------------------|
-| label     | `string`          | -   | 	标签文本                            |
-| prop      | `string`          | -   | v-model 绑定的字段名 *(需要是唯一值)*        |
-| component | `string \| VNode` | -   | 组件配置参考下面 `Component Field Types` |
-| props     | `object`          | -   | 传递的对应的组件的参数                      |
-| span      | `number`          | 24  | 栅格占据的列数，为 0 的时候会隐藏               |
+| 参数          | 类型                | 默认值 | 说明                               |
+|-------------|-------------------|-----|----------------------------------|
+| label       | `string`          | -   | 	标签文本                            |
+| prop        | `string`          | -   | v-model 绑定的字段名 *(需要是唯一值)*        |
+| component   | `string \| VNode` | -   | 组件配置参考下面 `Component Field Types` |
+| props       | `object`          | -   | 传递的对应的组件的参数                      |
+| span        | `number`          | 24  | 栅格占据的列数，为 0 的时候会隐藏               |
+| description | `string`          | -   | 表单类型为 steps 时有效，步骤描述             |                 |
+| children    | `ProFormColumn[]` | -   | 表单类型为 steps 时有效                  |
 
 
 ## Component Field Types
@@ -286,15 +302,15 @@ const columns = [
 
 - 普通表单使用
 
-| 参数          | 类型            | 默认值               | 说明                |
-|-------------|---------------|-------------------|-------------------|
-| justify     | `string`      | start             | 布局对齐方式            |
-| submit      | `boolean`     | true              | 提交按钮              |
-| submitText  | `string`      | -                 | 默认 i18n 文本        |
-| submitProps | `ButtonProps` | {type: 'primary'} | 提交按钮 传入的**props** |
-| reset       | `boolean`     | true              | 重设按钮              |
-| resetText   | `string`      | -                 | 默认 i18n 文本        |
-| resetProps  | `ButtonProps` | -                 | 重设按钮 传入的**props** |
+| 参数          | 类型            | 可选值                                                                                   | 默认值               | 说明                |
+|-------------|---------------|---------------------------------------------------------------------------------------|-------------------|-------------------|
+| justify     | `string`      | `'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'` | start             | 布局对齐方式            |
+| submit      | `boolean`     | -                                                                                     | true              | 提交按钮              |
+| submitText  | `string`      | -                                                                                     | -                 | 默认 i18n 文本        |
+| submitProps | `ButtonProps` | -                                                                                     | {type: 'primary'} | 提交按钮 传入的**props** |
+| reset       | `boolean`     | -                                                                                     | true              | 重设按钮              |
+| resetText   | `string`      | -                                                                                     | -                 | 默认 i18n 文本        |
+| resetProps  | `ButtonProps` | -                                                                                     | -                 | 重设按钮 传入的**props** |
 
 ### defineProFormStepsToolBar
 

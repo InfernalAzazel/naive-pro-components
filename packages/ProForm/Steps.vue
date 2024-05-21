@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, resolveComponent, useAttrs, computed, nextTick } from 'vue'
+import { ref, resolveComponent, useAttrs, computed } from 'vue'
 import type { ProFormColumn, ProFormProps, ProFormStepsToolBar } from './props'
 import type { FormInst } from 'naive-ui'
 import { Icon } from '@iconify/vue';
 import { defaultProps, ProFormStepsToolBarProps } from './props'
+import { FormValidateCallback, ShouldRuleBeApplied } from 'naive-ui/es/form/src/interface'
 
 defineOptions({ name: 'ProStepsForm', inheritAttrs: false })
 
@@ -18,12 +19,26 @@ const isMaxStep = computed(()=> currentStep.value === props.columns.length)
 const toolbar = computed<ProFormStepsToolBar>(() => {
   return props.toolbar ? props.toolbar : ProFormStepsToolBarProps
 })
+const emits = defineEmits<{
+  (e: 'submit', isValid: boolean): void
+  (e: 'reset'): void
+}>()
 
+// 定义暴露的方法
+const validate = (callback?: FormValidateCallback, shouldRuleBeApplied?: ShouldRuleBeApplied) =>
+  formInstRef.value?.validate(callback, shouldRuleBeApplied)
+const restoreValidation = () => formInstRef.value?.restoreValidation()
+const resetFields = () => props.columns[currentStep.value - 1].children.forEach(column => {
+  modelValue.value[column.prop] = ''
+})
+
+function submit() {
+  formInstRef.value?.validate(errors => emits('submit', !errors))
+}
 
 function reset() {
-  for (const column of props.columns[currentStep.value - 1].children) {
-    modelValue.value[column.prop] = ''
-  }
+  resetFields()
+  emits('reset')
 }
 
 
@@ -49,8 +64,9 @@ function renderComponent(column: ProFormColumn) {
 }
 
 defineExpose({
-  validate: () => formInstRef.value?.validate(),
-  resetFields: () => reset(),
+  validate,
+  restoreValidation,
+  resetFields,
 })
 </script>
 
@@ -87,7 +103,7 @@ defineExpose({
           <n-button v-if="toolbar.next" v-bind="toolbar.nextProps" :disabled="isMaxStep" @click="nextStep">
             <template #icon><icon icon="ion:arrow-forward-outline"/></template>
           </n-button>
-          <n-button v-if="toolbar.submit" v-bind="toolbar.submitProps" :disabled="!isMaxStep">{{ toolbar.submitText }}</n-button>
+          <n-button v-if="toolbar.submit" v-bind="toolbar.submitProps" :disabled="!isMaxStep" @click="submit">{{ toolbar.submitText }}</n-button>
           <n-button v-if="toolbar.reset" v-bind="toolbar.resetProps" @click="reset">{{ toolbar.resetText }}</n-button>
         </slot>
       </n-space>

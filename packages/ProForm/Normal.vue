@@ -3,6 +3,7 @@ import { computed, ref, resolveComponent, useAttrs } from 'vue'
 import type { FormInst} from 'naive-ui'
 import { ProFormColumn, ProFormProps, ProFormNormalToolBar } from './props'
 import { defaultProps, ProFormNormalToolBarProps} from './props'
+import type { FormValidateCallback, ShouldRuleBeApplied } from 'naive-ui/es/form/src/interface'
 
 defineOptions({ name: 'ProFormNormal', inheritAttrs: false })
 // @ts-ignore
@@ -10,16 +11,29 @@ const props = withDefaults(defineProps<ProFormProps>(), defaultProps)
 const modelValue = defineModel()
 const attrs = useAttrs()
 const formInstRef = ref<FormInst | null>(null)
+const emits = defineEmits<{
+  (e: 'submit', isValid: boolean): void
+  (e: 'reset'): void
+}>()
 
 const toolbar = computed<ProFormNormalToolBar>(() => {
   return props.toolbar? props.toolbar
     : ProFormNormalToolBarProps
 })
 
+// 定义暴露的方法
+const validate = (callback?: FormValidateCallback, shouldRuleBeApplied?: ShouldRuleBeApplied) =>
+  formInstRef.value?.validate(callback, shouldRuleBeApplied)
+const restoreValidation = () => formInstRef.value?.restoreValidation()
+const resetFields = () => props.columns.forEach(column => modelValue.value[column.prop] = '')
+
+function submit() {
+  formInstRef.value?.validate(errors => emits('submit', !errors))
+}
+
 function reset() {
-  for (const column of props.columns) {
-    modelValue.value[column.prop] = ''
-  }
+  resetFields()
+  emits('reset')
 }
 
 function renderComponent(column: ProFormColumn) {
@@ -27,8 +41,9 @@ function renderComponent(column: ProFormColumn) {
 }
 
 defineExpose({
-  validate: () => formInstRef.value?.validate(),
-  resetFields: () => reset(),
+  validate,
+  restoreValidation,
+  resetFields,
 })
 
 </script>
@@ -56,7 +71,7 @@ defineExpose({
     <!-- 工具栏 -->
     <n-space :justify="toolbar.justify">
       <slot name="toolbar">
-        <n-button v-if="toolbar.submit" v-bind="toolbar.submitProps">{{ toolbar.submitText }}</n-button>
+        <n-button v-if="toolbar.submit" v-bind="toolbar.submitProps" @click="submit">{{ toolbar.submitText }}</n-button>
         <n-button v-if="toolbar.reset" v-bind="toolbar.resetProps" @click="reset">{{ toolbar.resetText }}</n-button>
       </slot>
     </n-space>
