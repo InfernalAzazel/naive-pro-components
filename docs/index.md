@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: 开始文档
-      link: ./cn/guide/
+      link: ./cn/guide.md
     - theme: alt
       text: 学到更多
       link: http:\\www.baidu.com
@@ -21,8 +21,8 @@ features:
     details: 国际化，从源代码中提取翻译字段，按需加载语言包，支持多语言切换。
   - icon: 🛠️
     title: 设计
-    details: 简洁 大气 的 element-plus element-pro-components ui 与分布式多任务后端设计。
+    details: 简洁大气。
   - icon: 🔑
-    title: 角色权限
-    details: 拥有多角色权限，可自定义角色权限，可自定义角色菜单，可自定义角色路由。
+    title: 后台搭建
+    details: 迅速搭建后台。
 ---

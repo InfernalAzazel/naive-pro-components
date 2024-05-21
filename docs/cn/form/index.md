@@ -53,7 +53,7 @@
   const columns = [
     {
       label: 'Name',
-      type: 'steps',
+      description: '这是第一个步骤',
       children: [
         {
           label: 'Name',
@@ -72,7 +72,7 @@
     },
     {
       label: 'Name2',
-      type: 'steps',
+      description: '这是第二个步骤',
       children: [
         {
           label: 'Name2',
@@ -98,7 +98,7 @@
 </script>
 
 <template>
-  <ProForm v-model="formData" :columns="columns" />
+  <ProForm v-model="formData" :columns="columns" type="steps" />
   {{ JSON.stringify(formData) }}
 </template>
 ```

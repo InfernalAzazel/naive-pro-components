@@ -4,5 +4,5 @@ import DemoBaseProForm from './components/form/DemoBaseProForm.vue'
 </script>
 <template>
   <DemoProStepsForm />
-<!--  <DemoBaseProForm />-->
+  <DemoBaseProForm />
 </template>

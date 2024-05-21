@@ -5,15 +5,14 @@ import { defineProFormNormalToolBar, defineProFormProps, defineProFormStepsToolB
 export interface ProFormColumn {
   label: string
   prop: string
-  type?: 'normal' | 'steps'
   component: string | VNode
   props?: Record<string, any>
-  span?: number;
+  span?: number
+  description?: string
   children: ProFormColumn[]
 }
 
 export interface ProFormNormalToolBar {
-  direction?: 'top' | 'bottom'
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between' | 'space-evenly'
   submit?: boolean
   submitText?: string
@@ -26,15 +25,14 @@ export interface ProFormNormalToolBar {
 
 export interface ProFormStepsToolBar extends ProFormNormalToolBar{
   prev?: boolean
-  prevText?: string
   prevProps?: ButtonProps
   next?: boolean
-  nextText?: string
   nextProps?: ButtonProps
 }
 
 export interface ProFormProps extends  /* @vue-ignore */ FormProps {
   columns: ProFormColumn[]
+  type?: 'normal' | 'steps'
   toolbar?: ProFormNormalToolBar | ProFormStepsToolBar
   grid?: boolean
   cols?: number
@@ -44,7 +42,6 @@ export interface ProFormProps extends  /* @vue-ignore */ FormProps {
 
 export const ProFormNormalToolBarProps = defineProFormNormalToolBar(
   {
-    direction: 'bottom',
     justify: 'start',
     submit: true,
     submitText: '提交',
@@ -53,30 +50,20 @@ export const ProFormNormalToolBarProps = defineProFormNormalToolBar(
     },
     reset: true,
     resetText: '重置',
-    resetProps: {
-      type: 'primary',
-    },
   }
 )
 export const ProFormStepsToolBarProps = defineProFormStepsToolBar(
   {
     ...ProFormNormalToolBarProps,
     prev: true,
-    prevText: '上一步',
-    prevProps: {
-      type: 'primary',
-    },
     next: true,
-    nextText: '下一步',
-    nextProps: {
-      type: 'primary',
-    }
   }
 )
 
 
 export const defaultProps = defineProFormProps(
   {
+    type: 'normal',
     grid: true,
     cols: 24,
     xGap: 12,

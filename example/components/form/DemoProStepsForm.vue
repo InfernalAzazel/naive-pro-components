@@ -52,6 +52,8 @@ watchEffect(() => {
 </script>
 
 <template>
-  <ProForm v-model="formData" :columns="columns" />
-  {{ JSON.stringify(formData) }}
+  <n-space vertical>
+    <ProForm v-model="formData" :columns="columns" type="steps"/>
+    {{ JSON.stringify(formData) }}
+  </n-space>
 </template>
