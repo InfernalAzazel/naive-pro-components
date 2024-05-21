@@ -8,6 +8,9 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
             pattern: 'https://github.com/vitejs/vite/edit/main/docs/:path',
             text: 'Suggest changes to this page'
         },
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/InfernalAzazel/naive-pro-components' }
+        ],
         nav: [
             {
                 text: '指南',
