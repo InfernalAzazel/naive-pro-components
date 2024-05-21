@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as i,au as e}from"./chunks/framework.DrKyGFrd.js";const g=JSON.parse('{"title":"安装","description":"","frontmatter":{},"headers":[],"relativePath":"cn/guide.md","filePath":"cn/guide.md"}'),t={name:"cn/guide.md"},n=e("",2),p=[n];function l(h,o,d,c,r,k){return i(),a("div",null,p)}const m=s(t,[["render",l]]);export{g as __pageData,m as default};
