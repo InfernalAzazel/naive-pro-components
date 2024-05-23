@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ProForm from '../../../packages/ProForm';
+import { ProForm } from '../../../packages/ProForm';
 import { ref, watchEffect } from 'vue'
 
 const formData = ref({}); // 初始化为空对象
@@ -98,10 +98,6 @@ const rules ={
 }
 
 
-// 确保 watchEffect 正确设置并监听 formData 的变化
-watchEffect(() => {
-  console.log(formData.value);
-});
 
 
 
@@ -109,6 +105,7 @@ watchEffect(() => {
 
 <template>
   <ProForm v-model="formData" :columns="columns" :rules="rules" @submit="(isValid)=>console.log('验证结果: ', isValid)" />
+  {{ JSON.stringify(formData) }}
 </template>
 
 <style scoped>

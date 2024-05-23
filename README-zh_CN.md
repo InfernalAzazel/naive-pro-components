@@ -4,6 +4,8 @@
 
 简体中文 | [English](./README.md)
 
+> 目前在测试阶段请勿用于生产环境
+
 ## Install
 
 使用 npm:
@@ -44,7 +46,7 @@ app.mount('#app')
 - [X] 添加 ProForm base
 - [X] 添加 ProForm steps
 - [ ] 添加 ProForm tabs
-- [ ] 添加 ProForm query
+- [X] 添加 ProForm query
 - [ ] 添加 ProDataTable
 - [ ] 添加 ProCrud
 

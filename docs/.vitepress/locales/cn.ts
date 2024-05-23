@@ -31,6 +31,14 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
                         text: 'ProForm',
                         link: '/cn/form/index.md'
                     },
+                    {
+                        text: 'ProStepsForm',
+                        link: '/cn/form/steps.md'
+                    },
+                    {
+                        text: 'ProQueryForm',
+                        link: '/cn/form/query.md'
+                    },
                 ]
             },
         ],

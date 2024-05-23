@@ -4,6 +4,8 @@ See our website [naive-pro-components](https://infernalazazel.github.io/naive-pr
 
 English | [简体中文](./README-zh_CN.md)
 
+> Do not use in a production environment at this time during the testing phase
+
 ## Install
 
 Using npm:
@@ -43,7 +45,7 @@ app.mount('#app')
 - [X] Add a ProForm base
 - [X] Add a ProForm steps
 - [ ] Add a ProForm tabs
-- [ ] Add a ProForm query
+- [X] Add a ProForm query
 - [ ] Add a ProDataTable
 - [ ] Add a ProCrud
 

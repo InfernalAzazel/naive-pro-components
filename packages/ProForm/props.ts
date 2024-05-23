@@ -1,18 +1,8 @@
 import type { FormProps, ButtonProps } from 'naive-ui'
-import type { VNode } from 'vue';
-import { defineProFormNormalToolBar, defineProFormProps, defineProFormStepsToolBar } from './type'
+import type { ProBaseFormProps, ProBaseFormColumn } from './components'
 
-export interface ProFormColumn {
-  label: string
-  prop: string
-  component: string | VNode
-  props?: Record<string, any>
-  span?: number
-  description?: string
-  children: ProFormColumn[]
-}
 
-export interface ProFormNormalToolBar {
+export interface ProFormToolBar {
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between' | 'space-evenly'
   submit?: boolean
   submitText?: string
@@ -23,52 +13,48 @@ export interface ProFormNormalToolBar {
 }
 
 
-export interface ProFormStepsToolBar extends ProFormNormalToolBar{
+export interface ProFormStepsToolBar extends ProFormToolBar{
   prev?: boolean
   prevProps?: ButtonProps
   next?: boolean
   nextProps?: ButtonProps
 }
 
-export interface ProFormProps extends  /* @vue-ignore */ FormProps {
-  columns: ProFormColumn[]
-  type?: 'normal' | 'steps'
-  toolbar?: ProFormNormalToolBar | ProFormStepsToolBar
-  grid?: boolean
-  cols?: number
-  xGap?: number
-  yGap?: number
+export interface ProQueryFormToolBar {
+  justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between' | 'space-evenly'
+  search?: boolean
+  searchText?: string
+  searchProps?: ButtonProps
+  reset?: boolean
+  resetText?: string
+  resetProps?: ButtonProps
+}
+
+export interface ProFormProps extends ProBaseFormProps {
+  toolbar? : ProFormToolBar
   submit?: (isValid: boolean) => void
   reset?: () => void
 }
 
-export const ProFormNormalToolBarProps = defineProFormNormalToolBar(
-  {
-    justify: 'start',
-    submit: true,
-    submitText: '提交',
-    submitProps: {
-      type: 'primary',
-    },
-    reset: true,
-    resetText: '重置',
-  }
-)
-export const ProFormStepsToolBarProps = defineProFormStepsToolBar(
-  {
-    ...ProFormNormalToolBarProps,
-    prev: true,
-    next: true,
-  }
-)
+export interface ProStepsFormColumn {
+  label: string
+  description?: string
+  children: ProBaseFormColumn[]
+}
+export interface ProStepsFormProps extends Omit<ProBaseFormProps, 'columns'>  {
+  columns: ProStepsFormColumn[]
+  toolbar? : ProFormStepsToolBar
+  submit?: (isValid: boolean) => void
+  reset?: () => void
+}
+export interface ProQueryFormColumn extends Omit<ProBaseFormColumn, 'span'>{}
+export interface ProQueryFormProps extends /* @vue-ignore */ FormProps {
+  columns: ProQueryFormColumn[]
+  toolbar? : ProQueryFormToolBar
+  showNumber?: number
+  labelPlacement?: 'left' | 'top'
+  defaultCollapsed?: boolean
+  search?: () => void
+  reset?: () => void
+}
 
-
-export const defaultProps = defineProFormProps(
-  {
-    type: 'normal',
-    grid: true,
-    cols: 24,
-    xGap: 12,
-    yGap: 0
-  }
-)

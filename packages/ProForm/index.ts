@@ -1,2 +1,5 @@
-import ProForm from './Form.vue'
-export default ProForm
+import ProForm from './form.vue'
+import ProStepsForm from './steps.vue'
+import ProQueryForm from './query.vue'
+
+export { ProForm, ProStepsForm, ProQueryForm }

@@ -173,68 +173,6 @@ const columns = [
 ```
 :::
 
-## 步骤表单
-:::demo
-```vue
-<script setup lang="ts">
-  import { ref, watchEffect } from 'vue'
-
-  const formData = ref({});
-
-  const columns = [
-    {
-      label: 'Name',
-      description: '这是第一个步骤',
-      children: [
-        {
-          label: 'Name',
-          prop: 'name',
-          component: 'NInput',
-          props: {
-            placeholder: '请输入姓名'
-          }
-        },
-        {
-          label: 'Address',
-          prop: 'address',
-          component: 'NInput',
-        },
-      ]
-    },
-    {
-      label: 'Name2',
-      description: '这是第二个步骤',
-      children: [
-        {
-          label: 'Name2',
-          prop: 'name2',
-          component: 'NInput',
-          props: {
-            placeholder: '请输入姓名'
-          }
-        },
-        {
-          label: 'Address2',
-          prop: 'address2',
-          component: 'NInput',
-        },
-      ]
-    },
-   
-  ];
-  watchEffect(() => {
-    console.log(formData.value)
-  })
-
-</script>
-
-<template>
-  <ProForm v-model="formData" :columns="columns" type="steps" />
-  {{ JSON.stringify(formData) }}
-</template>
-```
-:::
-
 ## Props
 
 | 参数      | 类型                                            | 可选值               | 默认值    | 说明                                 |
@@ -259,23 +197,24 @@ const columns = [
 
 ## 方法
 
-| 方法名         | 参数                                                                                     | 说明                                                           |
-|-------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| submit      | `(isValid: boolean) => void`                                                           | 验证表单，Promise rejection 的返回值的是类型 `Array<FormValidationError>` |
-| reset       | `(callback?: FormValidateCallback, shouldRuleBeApplied?: ShouldRuleBeApplied) => void` | 还原到未校验的状态                                                    |
-| resetFields | `() => void`                                                                           | 对整个表单进行重置，将所有字段值重置为初始值并移除校验结果                                |
+| 方法名               | 参数                                                                                     | 说明                                                           |
+|-------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| validate          | `(callback?: FormValidateCallback, shouldRuleBeApplied?: ShouldRuleBeApplied) => void` | 还原到未校验的状态                                                    |
+| restoreValidation | `() => void`                                                                           | 验证表单，Promise rejection 的返回值的是类型 `Array<FormValidationError>` |
+| resetFields       | `() => void`                                                                           | 对整个表单进行重置，将所有字段值重置为初始值并移除校验结果                                |
 
 ## Columns
 
-| 参数          | 类型                | 默认值 | 说明                               |
-|-------------|-------------------|-----|----------------------------------|
-| label       | `string`          | -   | 	标签文本                            |
-| prop        | `string`          | -   | v-model 绑定的字段名 *(需要是唯一值)*        |
-| component   | `string \| VNode` | -   | 组件配置参考下面 `Component Field Types` |
-| props       | `object`          | -   | 传递的对应的组件的参数                      |
-| span        | `number`          | 24  | 栅格占据的列数，为 0 的时候会隐藏               |
-| description | `string`          | -   | 表单类型为 steps 时有效，步骤描述             |                 |
-| children    | `ProFormColumn[]` | -   | 表单类型为 steps 时有效                  |
+| 参数          | 类型                | 默认值  | 说明                               |
+|-------------|-------------------|------|----------------------------------|
+| label       | `string`          | -    | 	标签文本                            |
+| prop        | `string`          | -    | v-model 绑定的字段名 *(需要是唯一值)*        |
+| component   | `string \| VNode` | -    | 组件配置参考下面 `Component Field Types` |
+| props       | `object`          | -    | 传递的对应的组件的参数                      |
+| span        | `number`          | 24   | 栅格占据的列数，为 0 的时候会隐藏               |
+| show        | `boolean`         | true | 默认显示状态，设置 `false` 时会隐藏           |                       |
+| description | `string`          | -    | 表单类型为 steps 时有效，步骤描述             |                 |
+| children    | `ProFormColumn[]` | -    | 表单类型为 steps 时有效                  |
 
 
 ## Component Field Types

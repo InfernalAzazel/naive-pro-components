@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import DemoProStepsForm from './components/form/DemoProStepsForm.vue'
-import DemoBaseProForm from './components/form/DemoBaseProForm.vue'
+import DemoProFormSteps from './components/form/DemoProFormSteps.vue'
+import DemoProFormBase from './components/form/DemoProFormBase.vue'
+import DemoProFormQuery from './components/form/DemoProFormQuery.vue'
 </script>
 <template>
-  <DemoProStepsForm />
-  <DemoBaseProForm />
+  <DemoProFormQuery />
+  <DemoProFormBase />
 </template>
