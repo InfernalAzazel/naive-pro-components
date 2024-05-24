@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ProQueryForm } from '../../../packages/ProForm';
 import { ref } from 'vue'
 
 const formData = ref({}); // 初始化为空对象

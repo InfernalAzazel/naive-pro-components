@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ProForm } from '../../../packages/ProForm';
 import { ref, watchEffect } from 'vue'
 
 const formData = ref({}); // 初始化为空对象

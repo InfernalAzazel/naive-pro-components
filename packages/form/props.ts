@@ -47,6 +47,7 @@ export interface ProStepsFormProps extends Omit<ProBaseFormProps, 'columns'>  {
   submit?: (isValid: boolean) => void
   reset?: () => void
 }
+
 export interface ProQueryFormColumn extends Omit<ProBaseFormColumn, 'span'>{}
 export interface ProQueryFormProps extends /* @vue-ignore */ FormProps {
   columns: ProQueryFormColumn[]
@@ -58,3 +59,14 @@ export interface ProQueryFormProps extends /* @vue-ignore */ FormProps {
   reset?: () => void
 }
 
+export interface ProTabsFormColumn {
+  label: string
+  prop: string
+  children: ProBaseFormColumn[]
+}
+export interface ProTabsFormProps extends Omit<ProBaseFormProps, 'columns'>  {
+  columns: ProTabsFormColumn[]
+  toolbar? : ProFormStepsToolBar
+  submit?: (isValid: boolean) => void
+  reset?: () => void
+}

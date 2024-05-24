@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import { ProStepsForm } from '../../../packages/ProForm';
-
 const formData = ref({});
 
 const columns = [

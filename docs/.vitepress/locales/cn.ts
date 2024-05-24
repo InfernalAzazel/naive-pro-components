@@ -25,7 +25,7 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
         ],
         sidebar: [
             {
-                text: '表单',
+                text: '表单组件',
                 items: [
                     {
                         text: 'ProForm',
@@ -38,6 +38,15 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
                     {
                         text: 'ProQueryForm',
                         link: '/cn/form/query.md'
+                    },
+                ]
+            },
+            {
+                text: '内置组件',
+                items: [
+                    {
+                        text: 'ProTabs',
+                        link: '/cn/inside/tabs.md'
                     },
                 ]
             },
