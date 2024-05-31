@@ -5,6 +5,9 @@ import * as path from 'node:path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    postcss: './postcss.config.js',
+  },
   build: {
     // 库模式配置
     lib: {

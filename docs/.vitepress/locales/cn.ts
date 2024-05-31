@@ -41,15 +41,7 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
                     },
                 ]
             },
-            {
-                text: '内置组件',
-                items: [
-                    {
-                        text: 'ProTabs',
-                        link: '/cn/inside/tabs.md'
-                    },
-                ]
-            },
+
         ],
     },
 

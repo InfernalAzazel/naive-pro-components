@@ -1,13 +1,14 @@
+import './global.css'
 import { App} from 'vue';
 import { ProForm, ProStepsForm, ProQueryForm } from './form';
-import ProTabs from './tabs'
+import { ProLayout } from './layout';
 
 // 存储组件列表并按需导出
 const components = {
   ProForm,
   ProStepsForm,
   ProQueryForm,
-  ProTabs
+  ProLayout
 };
 
 const install = (app: App) => {
@@ -18,7 +19,7 @@ const install = (app: App) => {
 
 // 按需导出组件
 export * from './form';
-export * from './tabs';
+export * from './layout';
 // 导出默认对象，包含 install 方法
 export default {
   install,
