@@ -1,21 +1,35 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { ProLayoutProps } from './props'
-import logoSvg from '../assets/logo.svg'
 import { Icon } from '@iconify/vue'
 
-defineOptions({ name: 'ProForm', inheritAttrs: false })
+defineOptions({ name: 'ProLayout', inheritAttrs: false })
 const props = withDefaults(defineProps<ProLayoutProps>(), {
-  collapsed: false,
-  isFooter: true,
+  title: 'Naive Pro',
+  isMobile: false,
   headerHeight: 60,
-  isMobile: true,
+  isFooter: true,
+  logoSize: 24,
+
+  accordion: false,
+  showTrigger: true,
+  collapsed: false,
+  collapsedWidth: 64,
+  collapsedIconSize: 20,
+  inverted: false,
+  indent: 32,
 })
+const modelCollapsed= defineModel('collapsed', {default: false})
+
+const menuDrawerActive = ref(false)
 const rightDrawerActive = ref(false)
 
 
 function handleRightDrawer() {
   rightDrawerActive.value = true
+}
+function handleMenuDrawer() {
+  menuDrawerActive.value = true
 }
 </script>
 
@@ -27,7 +41,7 @@ function handleRightDrawer() {
       <slot name="header-start">
         <!-- apps -->
         <slot v-if="props.isMobile" name="apps">
-          <n-button quaternary >
+          <n-button quaternary @click="handleMenuDrawer" >
             <template #icon>
               <Icon icon="ion:apps-sharp"></Icon>
             </template>
@@ -36,8 +50,10 @@ function handleRightDrawer() {
         <!-- logo -->
         <slot name="logo">
           <div class="flex flex-row justify-center items-center space-x-2">
-            <n-image width="32" src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"></n-image>
-            <span class="text-2xl"> Naive Pro</span>
+            <n-image
+              :width="props.logoSize" :height="props.logoSize"
+              :src="props.logo?  props.logo: 'https://www.naiveui.com/assets/naivelogo-BdDVTUmz.svg'" />
+            <span class="text-2xl"> {{ props.title }}</span>
           </div>
         </slot>
       </slot>
@@ -61,25 +77,53 @@ function handleRightDrawer() {
     </n-layout-header>
     <n-layout position="absolute" has-sider :style="`top: ${props.headerHeight}px;`">
       <!-- Sidebar -->
-      <n-layout-sider bordered>
-        <n-menu :options="props.options" />
+      <n-layout-sider  v-if="!props.isMobile"
+                       :show-trigger="props.showTrigger"
+                       collapse-mode="width"
+                       :collapsed="modelCollapsed"
+                       :collapsed-width="props.collapsedWidth"
+                       @update-collapsed="(UCollapsed: boolean) => modelCollapsed = UCollapsed"
+                       :native-scrollbar="false"
+                       bordered
+      >
+        <n-menu  :options="props.menus"
+                 :accordion="props.accordion"
+                 :collapsed="modelCollapsed"
+                 :collapsed-width="props.collapsedWidth"
+                 :collapsed-icon-size="props.collapsedIconSize"
+                 :indent="props.indent"
+                 :inverted="props.inverted"
+                 :expanded-keys="props.openKeys"
+                 :value="props.selectedKey"
+                 @update:value="props.clickMenuItem"
+                 @update:expanded-keys="props.updateOpenKeys" />
       </n-layout-sider>
-
-
+      <n-drawer v-else v-model:show="menuDrawerActive" placement="left">
+        <n-drawer-content>
+          <n-menu  :options="props.menus"
+                   :accordion="props.accordion"
+                   :collapsed="modelCollapsed"
+                   :collapsed-width="props.collapsedWidth"
+                   :collapsed-icon-size="props.collapsedIconSize"
+                   :indent="props.indent"
+                   :inverted="props.inverted"
+                   :expanded-keys="props.openKeys"
+                   :value="props.selectedKey"
+                   @update:value="props.clickMenuItem"
+                   @update:expanded-keys="props.updateOpenKeys" />
+        </n-drawer-content>
+      </n-drawer>
       <!-- Main Content -->
       <n-layout-content>
-        99999999999999999
+        <slot />
       </n-layout-content>
 
       <!-- Footer -->
       <n-layout-footer v-if="props.isFooter" position="absolute" bordered>
-        <n-space align="center" justify="center">
-          <span>© 2024 My Company. All rights reserved.</span>
-        </n-space>
+        <div class="flex justify-center items-center">
+          <slot name="footer" />
+        </div>
       </n-layout-footer>
     </n-layout>
-
   </n-layout>
-
-
 </template>

@@ -38,13 +38,12 @@ app.mount('#app')
 ```
 ## List of things to do
 
-- [ ] Add a ProLayout
+- [X] Add a ProLayout
 - [ ] Add a ProBreadcrumb
 - [ ] Add a ProRadio
 - [ ] Add a ProCheckbox
 - [X] Add a ProForm base
 - [X] Add a ProForm steps
-- [ ] Add a ProForm tabs
 - [X] Add a ProForm query
 - [ ] Add a ProDataTable
 - [ ] Add a ProCrud

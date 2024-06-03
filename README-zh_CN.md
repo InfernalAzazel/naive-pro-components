@@ -39,13 +39,12 @@ app.mount('#app')
 ```
 ## 办事列表
 
-- [ ] 添加 ProLayout
+- [X] 添加 ProLayout
 - [ ] 添加 ProBreadcrumb
 - [ ] 添加 ProRadio
 - [ ] 添加 ProCheckbox
 - [X] 添加 ProForm base
 - [X] 添加 ProForm steps
-- [ ] 添加 ProForm tabs
 - [X] 添加 ProForm query
 - [ ] 添加 ProDataTable
 - [ ] 添加 ProCrud

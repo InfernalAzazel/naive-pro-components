@@ -19,11 +19,20 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
             },
             {
                 text: '组件',
-                link: '/cn/form/index.md',
-                activeMatch: '/cn/form/index.md'
+                link: '/cn/layout/index.md',
+                activeMatch: '/cn/layout/index.md'
             }
         ],
         sidebar: [
+            {
+                text: '表单组件',
+                items: [
+                    {
+                        text: 'ProLayout',
+                        link: '/cn/layout/index.md'
+                    },
+                ]
+            },
             {
                 text: '表单组件',
                 items: [
@@ -41,7 +50,6 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
                     },
                 ]
             },
-
         ],
     },
 

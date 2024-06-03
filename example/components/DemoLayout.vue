@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { h } from 'vue'
+import { h, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 
 function renderIcon (icon: string) {
@@ -81,12 +81,20 @@ const menuOptions = [
     ]
   }
 ]
+
+const collapsed = ref(true)
 </script>
 
 <template>
-  <ProLayout :options="menuOptions"/>
+  <ProLayout :menus="menuOptions" v-model:collapsed="collapsed">
+    <template #actions>
+      <n-button>功能1</n-button>
+      <n-button>功能2</n-button>
+      <n-button>功能3</n-button>
+    </template>
+    <template #footer>
+      © 2024 Your Company. All rights reserved.
+    </template>
+    我是内容
+  </ProLayout>
 </template>
-
-<style scoped>
-
-</style>
