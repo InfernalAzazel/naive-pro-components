@@ -1,3 +1,9 @@
+<docs lang="md">
+---
+title: 基础用法
+defaultPreviewMode: 'browser'
+---
+</docs>
 <script setup lang="ts">
 import { ref } from 'vue'
 const formData = ref({});
