@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitepress'
-import { demoblockPlugin, demoblockVitePlugin } from 'vitepress-theme-demoblock'
+import { defaultDeviceList, defaultDeviceTypes, pluginMkit, pluginVite } from '@sgwm-sutras/plugin'
 import { enConfig } from './locales/en'
 import { cnConfig } from './locales/cn'
+
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -12,10 +13,18 @@ export default defineConfig({
   },
   markdown: {
     config: (md) => {
-      md.use(demoblockPlugin)
+      md.use(pluginMkit)
     }
   },
   vite: {
-    plugins: [demoblockVitePlugin()]
+    plugins: [
+      pluginVite({
+        demo: {
+          defaultPreviewMode: 'browser',
+          deviceList: defaultDeviceList,
+          defaultDevice: defaultDeviceTypes.Default,
+        }
+      })
+    ]
   }
 })

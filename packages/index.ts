@@ -5,10 +5,10 @@ import { ProLayout } from './layout';
 
 // 存储组件列表并按需导出
 const components = {
+  ProLayout,
   ProForm,
   ProStepsForm,
   ProQueryForm,
-  ProLayout
 };
 
 const install = (app: App) => {
