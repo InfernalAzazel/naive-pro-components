@@ -2,8 +2,6 @@
 
 > 高级布局用于快速构建Admin视图
 
-## 基础用法
-
 <demo path="./components/DemoLayout" /> 
 
 ## Props

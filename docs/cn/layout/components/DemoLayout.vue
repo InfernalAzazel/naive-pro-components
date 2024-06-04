@@ -1,6 +1,6 @@
 <docs lang="md">
 ---
-defaultPreviewMode: 'browser'
+title: 基础用法
 ---
 </docs>
 

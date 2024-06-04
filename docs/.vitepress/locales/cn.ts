@@ -25,7 +25,7 @@ export const cnConfig: LocaleSpecificConfig<DefaultTheme.Config> = {
         ],
         sidebar: [
             {
-                text: '表单组件',
+                text: '布局',
                 items: [
                     {
                         text: 'ProLayout',
