@@ -5,7 +5,7 @@ import DemoProFormQuery from './components/form/DemoProFormQuery.vue'
 import layout from './components/DemoLayout.vue'
 </script>
 <template>
-<!--  <DemoProFormQuery />-->
+  <DemoProFormQuery />
 <!--  <DemoProFormBase />-->
-  <layout />
+<!--  <layout />-->
 </template>

@@ -2,6 +2,9 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'node:path'
+import Components from 'unplugin-vue-components/vite';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import NaiveProResolver from './packages/resolver'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -30,7 +33,17 @@ export default defineConfig({
     }
   },
   plugins: [
-    vue()
+    vue(),
+    Components({
+      // dirs: ['packages'],
+      // extensions: ['vue'],
+      // deep: true,
+      // dts: true,
+      resolvers: [
+        // NaiveUiResolver(),
+        NaiveProResolver()
+      ],
+    }),
   ],
   resolve: {
     alias: {

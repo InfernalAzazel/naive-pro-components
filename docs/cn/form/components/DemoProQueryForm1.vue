@@ -84,7 +84,7 @@ const columns = [
       placeholder: '请选择地址'
     },
   },
-];
+]
 
 
 

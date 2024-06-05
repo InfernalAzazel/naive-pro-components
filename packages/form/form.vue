@@ -59,6 +59,5 @@ defineExpose({
         </slot>
       </n-space>
     </template>
-    <!-- 工具栏 -->
   </ProBaseForm>
 </template>

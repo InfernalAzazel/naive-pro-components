@@ -20,7 +20,7 @@ export default defineConfig({
     plugins: [
       pluginVite({
         demo: {
-          defaultPreviewMode: 'browser',
+          // defaultPreviewMode: 'browser',
           deviceList: defaultDeviceList,
           defaultDevice: defaultDeviceTypes.Default,
         }

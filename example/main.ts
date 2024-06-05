@@ -8,5 +8,5 @@ import naivePro from '../packages/index'
 const app =createApp(App)
 
 app.use(naive)
-app.use(naivePro)
+// app.use(naivePro)
 app.mount('#app')

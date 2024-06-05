@@ -10,7 +10,7 @@ export default {
   enhanceApp({app}) {
     app.component('demo', DemoBox)
     app.use(naive)
-    app.use(naivePro)
+    // app.use(naivePro)
   }
 }
 
