@@ -1,6 +1,6 @@
 {
   "name": "naive-pro-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "license": "MIT",
   "files": [
@@ -37,8 +37,8 @@
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "l": "pnpm login",
-    "p": "pnpm publish",
+    "login": "pnpm login",
+    "publish": "pnpm build && pnpm publish --no-git-checks",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
@@ -46,6 +46,7 @@
   "dependencies": {
     "@vue/compiler-sfc": "^3.4.27",
     "@vueuse/core": "^10.9.0",
+    "naive-pro-components": "^0.0.4",
     "vue": "^3.4.21"
   },
   "devDependencies": {

@@ -35,7 +35,7 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      // dirs: ['packages'],
+      // dirs: ['naive-pro-components'],
       // extensions: ['vue'],
       // deep: true,
       // dts: true,
