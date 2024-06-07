@@ -40,14 +40,15 @@ export default defineConfig({
       // deep: true,
       // dts: true,
       resolvers: [
-        // NaiveUiResolver(),
+        NaiveUiResolver(),
         NaiveProResolver()
       ],
     }),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./packages', import.meta.url))
+      '@': fileURLToPath(new URL('./packages', import.meta.url)),
+      'packages': path.resolve(__dirname, 'packages')
     }
   }
 })

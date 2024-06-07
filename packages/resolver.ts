@@ -14,7 +14,7 @@ export function NaiveProResolver(): ComponentResolver {
     resolve: (name: string) => {
       const componentPath = componentMap[name];
       console.log(name, componentPath)
-      return { name: name, from: componentPath, sideEffects: undefined };
+      return { name: name, from: 'packages', sideEffects: undefined };
     },
   }
 }
