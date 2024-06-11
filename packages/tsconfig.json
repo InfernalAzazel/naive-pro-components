@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+//    "paths": {
+//      "@naiveui-pro-components/components": ["packages/components/src"]
+//    }
+  },
+  "include": ["components/**/*"],
+  "exclude": ["node_modules"]
+}

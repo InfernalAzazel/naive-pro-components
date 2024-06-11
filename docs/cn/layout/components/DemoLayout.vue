@@ -1,7 +1,6 @@
 <docs lang="md">
 ---
 title: 基础用法
-defaultPreviewMode: 'browser'
 ---
 </docs>
 
@@ -93,7 +92,7 @@ const collapsed = ref(true)
 </script>
 
 <template>
- <div class="h-[50vh]">
+ <div style="height: 50vh;">
    <ProLayout :menus="menuOptions" v-model:collapsed="collapsed">
      <template #actions>
        <n-button>功能1</n-button>

@@ -86,15 +86,17 @@ const collapsed = ref(true)
 </script>
 
 <template>
-  <ProLayout :menus="menuOptions" v-model:collapsed="collapsed">
-    <template #actions>
-      <n-button>功能1</n-button>
-      <n-button>功能2</n-button>
-      <n-button>功能3</n-button>
-    </template>
-    <template #footer>
-      © 2024 Your Company. All rights reserved.
-    </template>
-    我是内容
-  </ProLayout>
+ <div class="h-[50vh]">
+   <ProLayout :menus="menuOptions" v-model:collapsed="collapsed">
+     <template #actions>
+       <n-button>功能1</n-button>
+       <n-button>功能2</n-button>
+       <n-button>功能3</n-button>
+     </template>
+     <template #footer>
+       © 2024 Your Company. All rights reserved.
+     </template>
+     我是内容
+   </ProLayout>
+ </div>
 </template>

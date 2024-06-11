@@ -2,20 +2,16 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'node:path'
-import Components from 'unplugin-vue-components/vite';
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import NaiveProResolver from './packages/resolver'
+import dts from 'vite-plugin-dts';
+import UnoCSS from 'unocss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  css: {
-    postcss: './postcss.config.js',
-  },
   build: {
     // 库模式配置
     lib: {
       // 入口文件
-      entry: path.resolve(__dirname, 'packages/index.ts'),
+      entry: path.resolve(__dirname, 'components/index.ts'),
       // ESModule模式
       formats: ['es'],
       // 输出的文件名
@@ -34,21 +30,14 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    Components({
-      // dirs: ['naive-pro-components'],
-      // extensions: ['vue'],
-      // deep: true,
-      // dts: true,
-      resolvers: [
-        NaiveUiResolver(),
-        NaiveProResolver()
-      ],
+    UnoCSS(),
+    dts({
+      insertTypesEntry: true,
+      cleanVueFileName: true,
+      include: ['components/*']
     }),
   ],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./packages', import.meta.url)),
-      'packages': path.resolve(__dirname, 'packages')
-    }
   }
 })
+
