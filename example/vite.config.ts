@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import { NaiveProResolver } from '@naiveui-pro/resolver';
+import { NaiveProResolver } from '@naive-pro/resolver';
 
 const debugResolver = (name) => {
   console.log(`Resolving component: ${name}`);
@@ -13,8 +13,8 @@ const testProResolver = (name: string) => {
   console.log('啊哈哈', name)
   return {
     name: name,
-    from: `@naiveui-pro/components`,
-    sideEffects: `@naiveui-pro/components/es/style.css`,
+    from: `@naive-pro/components`,
+    sideEffects: `@naive-pro/components/es/style.css`,
   };
 }
 
@@ -23,10 +23,9 @@ export default defineConfig({
   plugins: [
     vue(),
     Components({
-      directoryAsNamespace: true,
       resolvers: [
         NaiveUiResolver(),
-        testProResolver
+        NaiveProResolver()
       ]
     })
   ],

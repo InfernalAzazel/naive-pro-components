@@ -10,12 +10,11 @@ export function NaiveProResolver(): ComponentResolver {
         return { name, from: 'naive-ui' }
       // @naiveui-pro/components 自动引入
       else if (name.startsWith('Pro')) {
-        const partialName = name.slice(3);
-        console.log(partialName)
+        console.log(name)
         return {
-          name: 'Pro' + partialName,
-          from: `@naiveui-pro/components`,
-          sideEffects: `@naiveui-pro/components/es/style.css`,
+          name: name,
+          from: `@naive-pro/components`,
+          sideEffects: `@naive-pro/components/es/style.css`,
         };
       }
     },

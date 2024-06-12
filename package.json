@@ -1,12 +1,11 @@
 {
-  "name": "naiveui-pro-components",
+  "name": "naive-pro-components",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:naiveuiPro": "pnpm --filter @naiveui-pro/components run build-only",
-    "build:resolver": "pnpm --filter @naiveui-pro/resolver run build",
-    "docs:update:naivePro": "pnpm --filter docs run docs:update:naivePro",
+    "build:naive-pro": "pnpm --filter @naive-pro/components run build-only",
+    "build:resolver": "pnpm --filter  @naive-pro/resolver run build",
     "docs:dev": "pnpm --filter docs run docs:dev",
     "docs:build": "pnpm --filter docs run docs:build",
     "example:dev": "pnpm --filter example run dev"

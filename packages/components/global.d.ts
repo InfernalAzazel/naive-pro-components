@@ -3,10 +3,10 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ProLayout: (typeof import('@naiveui-pro/components'))['ProLayout'];
-    ProForm: (typeof import('@naiveui-pro/components'))['ProForm'];
-    ProStepsForm: (typeof import('@naiveui-pro/components'))['ProStepsForm'];
-    ProQueryForm: (typeof import('@naiveui-pro/components'))['ProQueryForm'];
+    ProLayout: (typeof import('@naive-pro/components'))['ProLayout'];
+    ProForm: (typeof import('@naive-pro/components'))['ProForm'];
+    ProStepsForm: (typeof import('@naive-pro/components'))['ProStepsForm'];
+    ProQueryForm: (typeof import('@naive-pro/components'))['ProQueryForm'];
   }
 
   interface ComponentCustomProperties {}

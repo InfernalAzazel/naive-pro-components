@@ -19,7 +19,7 @@ jobs:
         run: pnpm install
 
       - name: Compile components
-        run: pnpm build:naivePro
+        run: pnpm build:naive-pro
 
       - name: Update modules
         run: pnpm install
