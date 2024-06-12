@@ -16,7 +16,7 @@
     "@sgwm-sutras/ui": "^0.0.3",
     "naive-ui": "^2.38.2",
     "vue": "^3.4.21",
-    "naive-pro-components": "workspace:*"
+    "@naiveui-pro/components": "workspace:*"
   },
   "devDependencies": {
     "@sgwm-sutras/plugin": "^0.0.3",

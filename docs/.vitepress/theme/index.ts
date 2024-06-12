@@ -3,8 +3,8 @@ import Theme from 'vitepress/theme'
 import { DemoBox } from '@sgwm-sutras/ui'
 import '@sgwm-sutras/ui/style'
 import naive from 'naive-ui'
-import naivePro from 'naive-pro-components'
-import 'naive-pro-components/dist/style.css';
+import naivePro from '@naiveui-pro/components'
+import '@naiveui-pro/components/es/style.css'
 
 export default {
   extends: Theme,

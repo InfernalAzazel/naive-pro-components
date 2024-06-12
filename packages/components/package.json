@@ -1,25 +1,15 @@
 {
-  "name": "naive-pro-components",
-  "version": "0.0.7",
+  "name": "@naiveui-pro/components",
+  "version": "0.0.1",
   "private": true,
+  "main": "lib",
+  "module": "es",
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "style": "./dist/style.css",
-  "main": "./dist/naive-pro-components.umd.js",
-  "module": "./dist/naive-pro-components.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/naive-pro-components.es.js",
-      "require": "./dist/naive-pro-components.umd.js"
-    },
-    "./dist/style.css": "./dist/style.css",
-    "./dist/style.less": "./dist/style.less"
-  },
+  "types": "types/index.d.ts",
+  "files": ["es", "lib", "types", "global.d.ts"],
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p type-check \\\"build-only {@}\\\" --",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",

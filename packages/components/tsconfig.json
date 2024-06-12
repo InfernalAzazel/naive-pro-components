@@ -8,11 +8,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-//    "paths": {
+    "baseUrl": ".."
+    //    "paths": {
 //      "@naiveui-pro-components/components": ["packages/components/src"]
 //    }
   },
-  "include": ["components/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["./node_modules"]
 }

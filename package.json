@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:naivePro": "pnpm --filter naive-pro-components run build-only",
-    "update:naivePro": "pnpm update naive-pro-components",
+    "build:naiveuiPro": "pnpm --filter @naiveui-pro/components run build-only",
+    "build:resolver": "pnpm --filter @naiveui-pro/resolver run build",
     "docs:update:naivePro": "pnpm --filter docs run docs:update:naivePro",
     "docs:dev": "pnpm --filter docs run docs:dev",
     "docs:build": "pnpm --filter docs run docs:build",
-    "example:dev": "pnpm --filter example run dynamic:dev"
+    "example:dev": "pnpm --filter example run dev"
   },
   "keywords": [],
   "author": "",

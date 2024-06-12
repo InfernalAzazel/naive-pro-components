@@ -1,0 +1,21 @@
+{
+  "name": "@naiveui-pro/resolver",
+  "version": "0.0.1",
+  "description": "组件库自动导入插件",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "files": ["dist"],
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch src"
+  },
+  "dependencies": {
+    "unplugin-vue-components": "^0.27.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.1.0"
+  }
+}
